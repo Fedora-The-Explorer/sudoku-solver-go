@@ -16,3 +16,6 @@ The solver employs two different sub-approaches to solve a sudoku (concurrent an
 6. In the next iteration, the next cell with least number of eligible numbers is picked up, so on and so forth
 
 7. This keeps repeating until either the sudoku is solved or a total of ten million iterations are exhausted.
+
+
+The important thing to note aswell is this. The sudoku is represented as a slice of int slice. A custom Copy method is written to perform deep copy of a sudoku. This is important since each thread of solver must work on a distinct copy of a sudoku to avoid data race.
